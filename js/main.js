@@ -1,3 +1,6 @@
+// funciones y variables
+let cliente = prompt("Ingrese su nombre de Usuario:");
+
 function mensajeCod(){
     let mensaje = "1 - (COD: CAP) Capitan de Espacio(x 36 und.)-----$5.000\n2 - (COD: CAC) Cachafaz(x 12 und.)-----$1.690\n3 - (COD: MEL) Meltaim(Apto Veganos x 12 und.)-----$1.910\n4 - (COD: GUO) Guolis(Con extra de relleno x 18 und.)-----$5.000\n5 - (COD: ANG) Angiola(Apto Celiacos x 12und.)-----$3.910\n";
     return mensaje;
@@ -17,6 +20,8 @@ let total = 0;
 let seguir;
 
 let compraTotal = [];
+
+// comienza el programa
 
 while(seguir != "FIN"){
 
@@ -55,17 +60,23 @@ while(seguir != "FIN"){
             compraTotal.push(["Angiola $3.910", cantidad, suma]);
             break;
     };
-    console.log(compraTotal);//prueva de array
-
-    seguir = prompt("El total de su compra es de $"+total+".\nSi desea finalizar la compra tipee FIN en caso de que desee adquirir más productos haga click en Aceptar o precione la tecla Enter.");
+    seguir = prompt(`El total de su compra es de $${total}.\nSi desea finalizar la compra tipee FIN en caso de que desee adquirir más productos haga click en Aceptar o precione la tecla Enter.`);
     seguir = seguir.toUpperCase();
 };
 
+
 let mensajeProducto = "";
 for ( let i=0; i < compraTotal.length; i++) {
-    mensajeProducto += compraTotal[i][0] + "(por " + compraTotal[i][1] + " unidades) : $" + compraTotal[i][2]+".\n";
+    mensajeProducto += compraTotal[i][0] + "(por " + compraTotal[i][1] + " unidades) : $" + compraTotal[i][2]+".<br>";
 };
-mensajeProducto += "\nTOTAL: $"+total+".\n";
-console.log(mensajeProducto);//prueva de mensaje
+mensajeProducto += "<br>TOTAL: $"+total+".<br>";
 
-alert("Muchas gracias por su compra!!!! Su pedido es:\n\n"+mensajeProducto+"\nEn las proximas 48hs estara llegando a su domicilio.");
+
+alert("Muchas gracias por su compra!!!! Su pedido es:<br>"+mensajeProducto+"<br>En las proximas 48hs estara llegando a su domicilio.");
+
+let saludo = document.createElement("h2");
+saludo.innerHTML = `<h2>Muchas Gracias por su compra ${cliente}.</h2>
+<p>${mensajeProducto}</p>
+<img class="imgSaludo" src="./img/alfa.jpg">`;
+
+document.body.append(saludo);
