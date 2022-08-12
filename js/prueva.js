@@ -10,11 +10,15 @@ boton.addEventListener("click", (e) => {
         llave: llave.value
     };
     console.log(usuarioDato)
+    let saludo = document.createElement("h2");
+    saludo.innerHTML = `<h2>Bienvenido ${usuarioDato.usuario}.</h2>
+    
+    <img class="imgSaludo" src="./img/alfa.jpg">`;
+    
+    document.body.append(saludo);
+    localStorage.getItem(`nombre`,usuario.value);
+    localStorage.getItem(`pass`,llave.value);
+    let enJson = JSON.stringify(usuarioDato);
+    localStorage.getItem(`usuario`, enJson);
+    
 });
-
-let saludo = document.createElement("h2");
-saludo.innerHTML = `<h2>Muchas Gracias por su compra ${cliente}.</h2>
-
-<img class="imgSaludo" src="./img/alfa.jpg">`;
-
-document.body.append(saludo);
